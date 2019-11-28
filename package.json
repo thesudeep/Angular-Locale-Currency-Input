@@ -8,7 +8,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "gh-pages -d dist/locale-currency"
+    "build_lib": "ng build localeCurrencyInput",
+    "npm_pack": "cd dist/locale-currency-input && npm pack",
+    "package": "npm run build_lib && npm run npm_pack",
+    "deploy": "gh-pages -d dist/locale-currency-input"
   },
   "private": true,
   "dependencies": {

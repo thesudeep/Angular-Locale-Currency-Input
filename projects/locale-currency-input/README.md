@@ -1,24 +1,75 @@
-# LocaleCurrencyInput
+# Angular Locale Currency
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.0.
+This repos is creating a library for angular currency input
 
-## Code scaffolding
+# Directive
+use in the html: localeCurrencyInput 
 
-Run `ng generate component component-name --project localeCurrencyInput` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project localeCurrencyInput`.
-> Note: Don't forget to add `--project localeCurrencyInput` or else it will be added to the default project in your `angular.json` file. 
+# Module
+import in the module - LocaleCurrencyInputModule
 
-## Build
+The directive can be used in html input to automatically change the input to locale currency.
+- Input in any locale currency convert to number inside the component. On focus the user will see to type in number and on focus out the user will see the number in currency format with the support of internalization format and currency symbol
 
-Run `ng build localeCurrencyInput` to build the project. The build artifacts will be stored in the `dist/` directory.
+- The selector name of the directive is localeCurrencyInput
 
-## Publishing
+- The directive consists of two inputs:
+  * currencyCode (default value = 'USD')
+  * allowNegative (default value = false)
 
-After building your library with `ng build localeCurrencyInput`, go to the dist folder `cd dist/locale-currency-input` and run `npm publish`.
+- For more details , the project is inside projects/locale-currency-input. 
 
-## Running unit tests
+# Demo
+- The following steps is required to use this directives:
+  - The module need to import
+     * import { LocaleCurrencyInputModule} from 'locale-currency-input';
+     * imports: [LocaleCurrencyInputModule]
 
-Run `ng test localeCurrencyInput` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  - Inside the view you need to call localeCurrencyInput and add input. Below is one of the example
+  
+    <input type="text"
+        localeCurrencyInput
+        [allowNegative]="false"
+        [currencyCode]="'USD'"
+        [value]="usAmount"
+        (blur)="updateUSAmount($event)" />
 
-## Further help
+  - Inside the component you can get the value by using event like blur or click or any other event. Below is one of the example
+      updateUSAmount(event) {
+        this.usAmount = event.target.value;
+      }
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+  - You can also used translation services to get the locale. If localeId is passed then the currency number format show based on the locale you had registered. If localeId is not passed then by default it will take from browser language. You can also use chrome plugin to set the locale and test in different language. Here is the chrome plugin to switch the local- https://chrome.google.com/webstore/detail/locale-switcher/kngfjpghaokedippaapkfihdlmmlafcc
+  Here is an example how we can used achieve this
+  ```javascript
+  export const getNavigatorLanguage = (lang = '') =>
+                    lang ? lang :
+                    (navigator.languages && navigator.languages.length) ?
+                      navigator.languages[0].split('-')[0] :
+                      navigator.language.split('-')[0] || 'en';
+
+
+  export const lang = getNavigatorLanguage();
+
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: lang
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (translateService) => {
+        return () => {
+          return import(
+            `@angular/common/locales/${lang}.js`
+            ).then(module => {
+              registerLocaleData(module.default);
+              translateService.use(lang);
+              translateService.setDefaultLang(lang);
+            });
+        };
+      },
+      deps: [TranslateService],
+      multi: true
+    }
+```
