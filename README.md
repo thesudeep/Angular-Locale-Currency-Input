@@ -1,6 +1,6 @@
 # Angular Locale Currency
 
-This repos is creating a library for angular currency input and also it is showing to use the library
+This repos is creating a library for angular currency input and also it is showing how to use the library
 
 # Library - LocaleCurrencyInputDirective
 
