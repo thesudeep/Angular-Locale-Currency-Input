@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'locale-currency';
+  usAmount = 100;
+  germanyAmount = 210;
+
+  updateUSAmount(event) {
+    this.usAmount = event.target.value;
+  }
+  updateGermanyAmount(event) {
+    this.germanyAmount = event.target.value;
+  }
 }
