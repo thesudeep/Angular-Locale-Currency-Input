@@ -21,6 +21,7 @@ The directive can be used in html input to automatically change the input to loc
      * import { LocaleCurrencyInputModule} from 'locale-currency-input';
 
   - Inside the view you need to call localeCurrencyInput and add input. Below is one of the example
+  
     <input type="text"
         localeCurrencyInput
         [allowNegative]="false"
