@@ -19,7 +19,8 @@ The directive can be used in html input to automatically change the input to loc
 
 - For more details , the project is inside projects/locale-currency-input. 
 
-# Demo
+# Demo 
+- Demo Url: https://stackblitz.com/edit/angular-6m72i8
 - The following steps is required to use this directives:
   - The module need to import
      * import { LocaleCurrencyInputModule} from 'locale-currency-input';
