@@ -1,6 +1,12 @@
 {
   "name": "locale-currency-input",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "description": "Support locale currency format with number and symbol for input text",
+  "keywords": ["local currency input", "angular local currency input"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thesudeep/Angular-Locale-Currency-Input"
+  },
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"
