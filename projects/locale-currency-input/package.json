@@ -1,6 +1,6 @@
 {
   "name": "locale-currency-input",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Support locale currency format with number and symbol for input text",
   "keywords": ["local currency input", "angular local currency input"],
   "repository": {

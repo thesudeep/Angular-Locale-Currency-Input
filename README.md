@@ -2,7 +2,14 @@
 
 This repos is creating a library for angular currency input and also it is showing how to use the library
 
-# Library - LocaleCurrencyInputDirective
+Package is available here - https://www.npmjs.com/package/locale-currency-input
+
+# Installation - localeCurrencyInput
+```bash
+$ npm i locale-currency-input
+```
+
+# Description
 
 The directive can be used in html input to automatically change the input to locale currency.
 - Input in any locale currency convert to number inside the component. On focus the user will see to type in number and on focus out the user will see the number in currency format with the support of internalization format and currency symbol
