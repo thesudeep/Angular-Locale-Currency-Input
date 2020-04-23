@@ -30,7 +30,7 @@ export class LocaleCurrencyInputDirective implements AfterViewInit {
     allDecimal: new RegExp(/^-?\d*[\.|,]?\d*$/g)
   };
 
-  private specialKeys: Array<string> = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Del'];
+  private specialKeys: Array<string> = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Del', 'Tab'];
 
   ngAfterViewInit() {
     this.el.nativeElement.value = this.currencyPipe.transform(this.el.nativeElement.value, this.currencyCode);
